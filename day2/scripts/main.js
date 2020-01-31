@@ -1,8 +1,10 @@
+//intial global variables
 var hours = document.getElementById("hours");
 var minutes = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
 var h, m, s, today;
 
+//function to retrieve the local time and date then convert it into the correct format
 function getTimeandDate() {
 
 	today = new Date();
@@ -27,14 +29,18 @@ function getTimeandDate() {
 	setTimeout(getTimeandDate, 1000);
 }
 
+//initialize new time/date to dettach from the settimeout function and update time for the 
+//functions below
 today = new Date();
 h = today.getHours();
 hours.textContent = h - 12;
 
+//increase, decrease buttons and counter(multiplier) by which the hour number increases
 var inc_btn = document.getElementById("inc-btn");
 var dec_btn = document.getElementById("dec-btn");
 var multiplier = 0;
 
+//function to be called when inc_btn is clicked, comes with two parameters: time and x
 function changeTime(time, x) {
 
 	inc_btn.style.opacity = 1;
@@ -73,7 +79,8 @@ function changeTime(time, x) {
 	console.log(time);
 }
 
-hours.onclick = function() {
+//hours global variable click event handler
+hours.onclick = function(event) {
 
 	console.log("hours");
 	changeTime(this, h);
