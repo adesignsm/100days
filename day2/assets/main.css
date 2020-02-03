@@ -45,7 +45,7 @@ span {
 #progress-bar-m {
 	height: 10%;
 	width: 1%;
-	background-color: #aec6cf ;
+	background-color: #aec6cf;
 
 	-webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
@@ -66,8 +66,22 @@ span {
 	transition: all .1s ease;
 }
 
+#inc-dec-button-container {
+	position: absolute;
+	top: 35%;
+	width: 100%;
+	left: 75%;
+}
+
 #inc-dec-button-container button {
+	border: none;
+	background-color: #61a8ff;
+	color: #fff;
 	opacity: 0;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 120%;
+	padding: 2%;
+	display: inline;
 
 	-webki-transition: all .4s ease;
 	-moz-transition: all .4s ease;

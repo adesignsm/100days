@@ -51,6 +51,8 @@ function changeTime(time, x) {
 	today = new Date();
 	h = today.getHours();
 
+	x = x - 12;
+
 	inc_btn.onclick = function(event) {
 
 		console.log(multiplier);
@@ -66,7 +68,6 @@ function changeTime(time, x) {
 			}
 
 			x = 0;
-			x.setHours()
 
 		} else {
 
@@ -76,7 +77,24 @@ function changeTime(time, x) {
 		console.log(x);
 	}
 
-	console.log(time);
+	dec_btn.onclick = function(event) {
+
+		console.log(multiplier);
+		console.log(x);
+
+		x = x - multiplier;
+		time.textContent = x;
+
+		if (time.textContent == 0) {
+			
+			time.textContent = 12;
+
+			if (time.textContent == 12) {
+
+				x = x + 12;
+			}		
+		}		
+	}
 }
 
 //hours global variable click event handler
