@@ -7,7 +7,7 @@ var question_bank = [
 	"what was the first question asked",
 	"what is your name?",
 	"2, 4, 16, __, 65,536, 4,294,967,296 fill in the blank",
-	"it Ted's last name is baker what is Joe's last name",
+	"if Ted's last name is baker what is Joe's last name",
 	"what does int mean",
 	"what movie is T-800 from",
 	"who made this app",

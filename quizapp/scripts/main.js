@@ -3,7 +3,7 @@ var buttons_arr = document.getElementsByTagName("button");
 var player_score = document.getElementById("score-counter");
 var score = 0;
 
-var question_counter = 0;
+var question_counter = 20;
 
 console.log(question, buttons_arr);
 
@@ -336,3 +336,5 @@ for (var button of buttons_arr) {
 		}, 300);
 	}
 }
+
+document.addEventListener('contextmenu', event => event.preventDefault());

@@ -77,3 +77,39 @@ body, html {
 	margin-left: 35%;
 	display: none;
 }
+
+@media only screen and (min-width: 100px) and (max-width: 1000px) {
+	#quiz-section {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	#quiz-section button {
+		width: 70%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+		margin-bottom: 5%;
+	}
+
+	#quiz-section h1 {
+		font-size: 200%;
+	}
+
+	#results-section {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	#results-section h1 {
+		font-size: 200%;
+	}
+
+	#qr-container {
+		margin: 0;
+	}
+
+	#qr-container img {
+		text-align: center;
+		margin-left: 16%;
+	}
+}
