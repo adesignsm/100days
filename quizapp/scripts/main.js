@@ -1,7 +1,9 @@
 var question = document.getElementById("question");
 var buttons_arr = document.getElementsByTagName("button");
+var player_score = document.getElementById("score-counter");
 var score = 0;
-var question_counter = 0;
+
+var question_counter = 1;
 
 console.log(question, buttons_arr);
 
@@ -44,111 +46,93 @@ var btn_bank = {
 	]
 };
 
-question.textContent = question_bank[Math.floor(Math.random() * question_bank.length)];
-if (question.textContent == question_bank[0]) {
-	buttons_arr[0].innerHTML = btn_bank.question1[0];
-	buttons_arr[1].innerHTML = btn_bank.question1[1];
-	buttons_arr[2].innerHTML = btn_bank.question1[2],
-	buttons_arr[3].innerHTML = btn_bank.question1[3];
+window.onload = function() {
 
-} else if (question.textContent == question_bank[1]) {
-	buttons_arr[0].innerHTML = btn_bank.question2[0];
-	buttons_arr[1].innerHTML = btn_bank.question2[1];
-	buttons_arr[2].innerHTML = btn_bank.question2[2];
-	buttons_arr[3].innerHTML = btn_bank.question2[3];	
-
-} else if (question.textContent == question_bank[2]) {
-	buttons_arr[0].innerHTML = btn_bank.question3[0];
-	buttons_arr[1].innerHTML = btn_bank.question3[1];
-	buttons_arr[2].innerHTML = btn_bank.question3[2];
-	buttons_arr[3].innerHTML = btn_bank.question3[3];
-
-} else if (question.textContent == question_bank[3]) {
-	buttons_arr[0].innerHTML = btn_bank.question4[0];
-	buttons_arr[1].innerHTML = btn_bank.question4[1];
-	buttons_arr[2].innerHTML = btn_bank.question4[2];
-	buttons_arr[3].innerHTML = btn_bank.question4[3];
+	question_init(1);
 }
 
-buttons_arr[0].onclick = function(event) {
-	
-	if (question.textContent === question_bank[0]) {
-		console.log("correct");
-		score = score + 5;
-		question_counter = 1;
-	
-	} else  if (question.textContent === question_bank[3]) {
-		console.log("correct");	
-		score = score + 5;
-	
-	} else {
-		console.log("wrong");
-		score--;
-		question_counter = 0;
-	}
+function question_init(counter) {
 
-	if (question_counter == 0 || question_counter == 1) {
+	for (var i = 0; i < buttons_arr.length; i++) {
 
-		question.textContent = question_bank[Math.floor(Math.random() * question_bank.length)];
-	}
-}
+		if (counter == 1) {
 
-buttons_arr[1].onclick = function(event) {
+			question.innerHTML = question_bank[0];
+			buttons_arr[i].innerHTML = btn_bank.question1[i];
+		
+		} else if (counter == 2) {
 
-	if (question.textContent === question_bank[1]) {
+			question.innerHTML = question_bank[1];
+			buttons_arr[i].innerHTML = btn_bank.question2[i];
+		
+		} else if (counter == 3) {
 
-		console.log("correct");
-		score = score + 5;
-		question_counter = 1;
-	
-	} else {
-		console.log("wrong");
-		score--;
-		question_counter = 0;
-	}
+			question.innerHTML = question_bank[2];
+			buttons_arr[i].innerHTML = btn_bank.question3[i];
+		
+		} else if (counter == 4) {
 
-	if (question_counter == 0 || question_counter == 1) {
-
-		question.textContent = question_bank[Math.floor(Math.random() * question_bank.length)];
-	}
-}
-
-buttons_arr[2].onclick = function(event) {
-
-	if (question.textContent === question_bank[2]) {
-
-		console.log("wrong");
-		score--;
-		question_counter = 0;
-	
-	} else {
-		console.log("wrong");
-		score--;
-		question_counter = 0;
+			question.innerHTML = question_bank[3];
+			buttons_arr[i].innerHTML = btn_bank.question4[i];
+		} 
 	} 
-
-	if (question_counter == 0 || question_counter == 1) {
-
-		question.textContent = question_bank[Math.floor(Math.random() * question_bank.length)];
-	}
 }
 
-buttons_arr[3].onclick = function(event) {
+for (var button of buttons_arr) {
 
-	if (question.textContent === question_bank[2]) {
+	button.onclick = function(event) {
 
-		console.log("correct");
-		score = score + 5;
-		question_counter = 1;
-	
-	} else {
-	 	console.log("wrong");
-	 	score--;
-	 	question_counter = 0;
-	}
+		if (question.innerHTML == question_bank[0] && event.target.innerHTML == "2") {
+			score = score + 5;
+			console.log(score);
 
-	if (question_counter == 0 || question_counter == 1) {
+			question_counter++;
+			question_init(question_counter);
+		
+		} else if (question.innerHTML == question_bank[1] && event.target.innerHTML == "Ottawa") {
+			score = score + 5;
+			console.log(score);
 
-		question.textContent = question_bank[Math.floor(Math.random() * question_bank.length)];
+			question_counter++;
+			question_init(question_counter);
+		
+		} else if (question.innerHTML == question_bank[2] && event.target.innerHTML == "meaty eyes") {
+			score = score + 5;
+			console.log(score);
+
+			question_counter++;
+			question_init(question_counter);
+		
+		} else if (question.innerHTML == question_bank[3] && event.target.innerHTML == "im st00pid") {
+			score = score + 5;
+			console.log(score);
+
+			question_counter++;
+			question_init(question_counter);
+		
+		} else {
+			score--;
+
+			if (score < 0) {
+
+				score = 0;
+				console.log(score);
+			}
+
+			question_counter++;
+			question_init(question_counter);
+		}
+
+		if (question_counter >= 4) {
+
+			question_counter = 0;
+		}
+
+		player_score.style.opacity = "0";
+
+		setTimeout(function() {
+			player_score.innerHTML = score;
+			player_score.style.opacity = "1";
+		}, 300);
 	}
 }
