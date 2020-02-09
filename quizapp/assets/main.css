@@ -46,6 +46,7 @@ body, html {
 	font-size: 120%;
 	font-family: "Roboto Mono", monospace;
 	cursor: pointer;
+	margin: 2%;
 
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
@@ -57,4 +58,18 @@ body, html {
 #quiz-section button:hover {
 	background-color: #000;
 	color: #ff2424;
+}
+
+#results-section {
+	width: 50%;
+	text-align: center;
+	margin-left: 25%;
+	margin-top: 5%;
+	display: none;
+}
+
+#qr-container {
+	margin-top: 5%;
+	margin-left: 35%;
+	display: none;
 }
