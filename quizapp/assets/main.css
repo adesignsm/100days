@@ -68,6 +68,10 @@ body, html {
 	display: none;
 }
 
+#results-section h1 {
+	font-size: 300%;
+}
+
 #qr-container {
 	margin-top: 5%;
 	margin-left: 35%;

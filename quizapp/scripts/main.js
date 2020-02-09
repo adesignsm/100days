@@ -308,6 +308,23 @@ for (var button of buttons_arr) {
 			$("#quiz-section").delay(1000).fadeOut(1000);
 			$("#results-section").delay(3000).fadeIn(500);
 			$("#qr-container").delay(6000).fadeIn(200);
+
+			document.getElementById("your-score").innerHTML += score;
+
+			if (score < 60) {
+
+				new QRCode(document.getElementById("qr-container"), ls_data);
+				console.log("low");
+
+			} else if (score > 60) {
+
+				new QRCode(document.getElementById("qr-container"), hs_data);
+				console.log("high");
+
+			} else {
+
+				new QRCode(document.getElementById("qr-container"), qr_data);
+			}	
 		}
 
 		player_score.style.opacity = "0";
